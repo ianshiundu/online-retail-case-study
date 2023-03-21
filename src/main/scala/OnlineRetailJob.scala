@@ -58,7 +58,7 @@ class OnlineRetailJob(spark: SparkSession) {
   private def getRevenueDF: DataFrame = {
     val inputDF = loadFromFile()
     inputDF
-      .withColumn("Revenue", round(col("Quantity") * col("Price")))
+      .withColumn("Revenue", round(col("Quantity") * col("Price"), 2))
   }
 
   /**
